@@ -1,16 +1,16 @@
 {
-    "geode": "3.6.1",
+    "geode": "4.0.0-beta.1",
     "gd": {
-        "win": "2.204",
-        "mac": "2.204",
-        "android": "2.206"
+        "win": "2.2081",
+        "mac": "2.2081",
+        "android": "2.2081"
     },
     "version": "v1.0.0",
     "id": "tvoe_imya.russian_text",
     "name": "Russian Text Mod",
     "developer": "Developer",
-    "description": "rus generator",
+    "description": "Генератор русского текста",
     "dependencies": {
-        "geode.node-ids": ">=v1.2.0"
+        "geode.node-ids": ">=v1.12.0"
     }
 }
