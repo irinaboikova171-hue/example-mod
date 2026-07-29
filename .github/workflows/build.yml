@@ -15,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up Geode CLI
+        uses: geode-sdk/install-geode-cli@main
+
       - name: Build the mod
-        uses: geode-sdk/build-geode-mod@main
-        with:
-          target: Android
-          combine: true
-          
+        run: geode package new --geode 4.0.0-beta.1 || geode build --platform android --config release
+        
