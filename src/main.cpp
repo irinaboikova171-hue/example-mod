@@ -117,7 +117,7 @@ public:
 };
 
 // ==========================================
-// 4. КНОПКИ И ЭКСТРАКТОР (HOOKS)
+// 4. КНОПКИ И ЭКСТРАКТОР (КООРДИНАТЫ БЕЗ FMT)
 // ==========================================
 class $modify(MyEditorUI, EditorUI) {
     bool init(LevelEditorLayer* editorLayer) {
@@ -161,10 +161,11 @@ class $modify(MyEditorUI, EditorUI) {
 
         for (int i = 0; i < selectedObjs->count(); i++) {
             auto obj = static_cast<GameObject*>(selectedObjs->objectAtIndex(i));
-            float offsetX = obj->getPositionX() - baseX;
-            float offsetY = obj->getPositionY() - baseY;
+            int offsetX = static_cast<int>(obj->getPositionX() - baseX);
+            int offsetY = static_cast<int>(obj->getPositionY() - baseY);
 
-            cppCode += fmt::format("{{{}, {}}}", offsetX, offsetY);
+            // Обычная конкатенация строк без использования fmt
+            cppCode += "{" + std::to_string(offsetX) + ", " + std::to_string(offsetY) + "}";
             
             if (i < selectedObjs->count() - 1) cppCode += ", ";
         }
